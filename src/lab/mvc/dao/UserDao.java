@@ -18,8 +18,9 @@ public class UserDao {
 		try {
 			conn = dbmanage.initDB();
 			sta = conn.createStatement();
-			String sql = ("insert into UserInfo(email,password,firstName,lastName,tel)value('"+user.getEmail()+"','"+user.getPassword()+"','"+user.getFirstName()+"','"+user.getLastName()+"','"+user.getTel()+"')");
-    		System.out.println("data inserted");
+			String sql = ("insert into homeswophome_db.UserInfo(email,password,firstName,lastName,tel) values('"+user.getEmail()+"','"+user.getPassword()+"','"+user.getFirstName()+"','"+user.getLastName()+"','"+user.getTel()+"')");
+    		
+			System.out.println("data inserted");
 			
 			sta.executeUpdate(sql);
 		} catch (SQLException e) {
@@ -31,7 +32,7 @@ public class UserDao {
 		}
 	}
 
-	public UserInfo judgeUserPassword(String email, String password) {
+	public UserInfo judgeUserPassword(String email, String password) throws InstantiationException, IllegalAccessException {
 		 // 用户登录验证
         Dbmanage dbmanage = new Dbmanage();
         Connection conn = null;

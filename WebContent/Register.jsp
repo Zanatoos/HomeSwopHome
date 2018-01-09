@@ -26,7 +26,6 @@ function validate(){
     	alert("Confirm Password incorrect");
     }
 	
-	
 }
 </script>
 </head>

@@ -5,19 +5,17 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSetMetaData;
 
 public class Dbmanage {
+	private static String url = "jdbc:derby:/Users/Ziguette/Documents/Workspace/GitHub/HomeSwopHome/homeswophome_db;create=true";
+	private static final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
     public Connection initDB() {
-        // 初始化数据库连接方法
+    	
         Connection conn = null;
-        // 创建一个Connection句柄
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            // 加载数据库驱动
-            String url = "jdbc:mysql://localhost:3306/userdb?charaterEncoding=utf-8";
-            // 定义数据库地址url，并设置编码格式
-            conn = DriverManager.getConnection(url, "root", "anguis5h");
-            // 得到数据连接
+        	Class.forName(driver);
+            conn = DriverManager.getConnection(url, "root", "root");
         } catch (ClassNotFoundException e) {
 
             e.printStackTrace();
@@ -31,12 +29,21 @@ public class Dbmanage {
 
     public void closeDB(Statement sta, Connection conn) {
         // 关闭数据库连接（无结果集）
-        try {
-            sta.close();
-            conn.close();
-        } catch (SQLException e) {
-
-            e.printStackTrace();
+    	try
+        {
+            if (sta != null)
+            {
+                sta.close();
+            }
+            if (conn != null)
+            {
+                sta.close();
+                conn.close();
+            }           
+        }
+        catch (SQLException sqlExcept)
+        {
+            
         }
 
     }

@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import lab.mvc.dao.UserDao;
 import lab.mvc.model.UserInfo;
 
-
 /**
  * Servlet implementation class ControllerUser
  */
@@ -42,7 +41,16 @@ public class ControllerUser extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		UserDao userDao = new UserDao();
-		UserInfo user = userDao.judgeUserPassword(email, password);
+		UserInfo user = null;
+		try {
+			user = userDao.judgeUserPassword(email, password);
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		String message = "email and password are not correct！";
 
@@ -90,7 +98,7 @@ public class ControllerUser extends HttpServlet {
 		
 		
 		UserDao userDao = new UserDao();//实例化数据库操作对象
-		userDao.insertUser(user);//调用方法
+		userDao.insertUser(user);
 		request.getRequestDispatcher("login.jsp").forward(request,response);
 
 

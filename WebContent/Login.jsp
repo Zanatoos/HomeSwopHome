@@ -9,7 +9,6 @@
 </head>
 <body>
 	<jsp:include page="design/header.jsp" />
-
 	<form name="loginform" action="ControllerUser" method="get" >
 		<h1 id="h">Login Here</h1>
 		<label>Email:</label> <input  type="text" name="email" /> <br>
