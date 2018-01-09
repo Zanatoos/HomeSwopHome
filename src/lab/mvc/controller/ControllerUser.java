@@ -8,8 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
+import javax.servlet.http.HttpSession;
 
 import lab.mvc.dao.UserDao;
 import lab.mvc.model.UserInfo;
@@ -100,6 +99,15 @@ public class ControllerUser extends HttpServlet {
 		UserDao userDao = new UserDao();//实例化数据库操作对象
 		userDao.insertUser(user);
 		request.getRequestDispatcher("login.jsp").forward(request,response);
+		
+		
+		HttpSession session = request.getSession();  
+	    session.setAttribute("email", email);
+	    session.setAttribute("password", password);
+	    session.setAttribute("firstName", firstName);
+	    session.setAttribute("lastName", lastName);
+	    session.setAttribute("tel", tel);
+	    session.setAttribute("housrId", houseId);
 
 
 	}	

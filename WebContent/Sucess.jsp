@@ -8,12 +8,25 @@
 	<title>HomeSwopHome </title>
 </head>
 <body>
-	<jsp:include page="design/header.jsp" />
+
+<header>
+	<ul>
+		<li id="logo" ><a href="index.jsp"><img src="images/logo.png"/></a></li>
+		<li><a href="">Guide</a></li>
+		<li><a href="index.jsp">Homes</a></li>
+		<li><a href="personal_Info.jsp">Profile</a></li>
+		<li><a href="HouseInfo.jsp">HouseInfo</a></li>
+		<li id="sign" style="float: right;"><a href=""><%= request.getSession().getAttribute("email") %></a></li>
+
+	</ul>
+</header>
 	
 <img src="images/stockholm-snow.jpg" style="width: 100%; height: auto;" />
 	
 
 	
-	<jsp:include page="design/footer.jsp" />
+
 </body>
 </html>
+
+
