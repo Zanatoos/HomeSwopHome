@@ -6,15 +6,21 @@
 	<title>Login here</title>
 	<link rel="stylesheet" type="text/css" href="design/design.css"> 
 
+
+
+
 </head>
 <body>
 	<jsp:include page="design/header.jsp" />
+	
+	<% String message = (String)(request.getAttribute("message")); %>
 
-	<form name="loginform" action="ControllerUser" method="get" >
+	<form name="loginform" action="loginservlet" method="post" >
 		<h1 id="h">Login Here</h1>
 		<label>Email:</label> <input  type="text" name="email" /> <br>
 		<br>
 		<label>Password:</label> <input  type="password" name="password" /> <br>
+		<span style = "color:red; font-size:13px;" id = "td2"><%=message %></span>
 		<br>
 		<input type="submit" value="Login" /><br>
 		<br>

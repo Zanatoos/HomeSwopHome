@@ -8,8 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
+import javax.servlet.http.HttpSession;
 
 import lab.mvc.dao.UserDao;
 import lab.mvc.model.UserInfo;
@@ -38,28 +37,28 @@ public class ControllerUser extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		
-		UserDao userDao = new UserDao();
-		UserInfo user = userDao.judgeUserPassword(email, password);
-		
-		String message = "email and password are not correct！";
-
-		if (user == null) {
-
-			request.setAttribute("message", message);
-			
-//			response.getWriter().println("incorrect！");  
-
-			request.getRequestDispatcher("login.jsp").forward(request,response);
-			
-
-
-		}else{
-			request.getRequestDispatcher("index.jsp").forward(request,response);
-
-		}
+//		String email = request.getParameter("email");
+//		String password = request.getParameter("password");
+//		
+//		UserDao userDao = new UserDao();
+//		UserInfo user = userDao.judgeUserPassword(email, password);
+//		
+//		String message = "email and password are not correct！";
+//
+//		if (user == null) {
+//
+//			request.setAttribute("message", message);
+//			
+////			response.getWriter().println("incorrect！");  
+//
+//			request.getRequestDispatcher("login.jsp").forward(request,response);
+//			
+//
+//
+//		}else{
+//			request.getRequestDispatcher("index.jsp").forward(request,response);
+//
+//		}
 		
 		
 	}
@@ -92,6 +91,15 @@ public class ControllerUser extends HttpServlet {
 		UserDao userDao = new UserDao();//实例化数据库操作对象
 		userDao.insertUser(user);//调用方法
 		request.getRequestDispatcher("login.jsp").forward(request,response);
+		
+		
+		HttpSession session = request.getSession();  
+	    session.setAttribute("email", email);
+	    session.setAttribute("password", password);
+	    session.setAttribute("firstName", firstName);
+	    session.setAttribute("lastName", lastName);
+	    session.setAttribute("tel", tel);
+	    session.setAttribute("housrId", houseId);
 
 
 	}	

@@ -1,10 +1,13 @@
 package lab.mvc.dao;
 
 import java.sql.Connection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-//import java.util.ArrayList;
+
+
+
 
 import lab.mvc.model.UserInfo;
 
@@ -67,6 +70,97 @@ public class UserDao {
         return user;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+//	public ArrayList<UserInfo> selectNotDeleteList() {
+//        // 查询所有正常用户
+//        Dbmanage dbmanage = new Dbmanage();
+//        Connection conn = null;
+//        Statement sta = null;
+//        ResultSet rs = null;
+//        UserInfo user = null;
+//        ArrayList<UserInfo> list = new ArrayList<UserInfo>();
+//        try {
+//            conn = dbmanage.initDB();
+//            sta = conn.createStatement();
+//
+//            String sql = "SELECT * FROM UserInfo";
+//
+//            rs = sta.executeQuery(sql);
+//            while (rs.next()) {
+//
+//            	user = new UserInfo();
+//                user.setEmail(rs.getString("email"));
+//            	user.setPassword(rs.getString("password"));
+//            	user.setFirstName(rs.getString("firstName"));
+//            	user.setLastName(rs.getString("lastName"));
+//            	user.setTel(rs.getString("tel"));
+//            	user.setHouseId(rs.getString("houseId"));
+//
+//                list.add(user);
+//            }
+//
+//        } catch (SQLException e) {
+//
+//            e.printStackTrace();
+//        } finally {
+//            // 执行完关闭数据库
+//            dbmanage.closeDB(rs, sta, conn);
+//        }
+//        return list;
+//    }
+//	
+//	
+//	
+	public UserInfo selectOneUserInfo(String email) {
+        // 查看单一用户信息
+        Dbmanage dbmanage = new Dbmanage();
+        Connection conn = null;
+        Statement sta = null;
+        ResultSet rs = null;
+        UserInfo user = null;
+
+        try {
+            conn = dbmanage.initDB();
+            sta = conn.createStatement();
+            String sql = "SELECT * FROM UserInfo WHERE email = '"+ email + "'";
+            rs = sta.executeQuery(sql);
+            while (rs.next()) {
+                user = new UserInfo();
+                user.setEmail(rs.getString("email"));
+            	user.setPassword(rs.getString("password"));
+            	user.setFirstName(rs.getString("firstName"));
+            	user.setLastName(rs.getString("lastName"));
+            	user.setTel(rs.getString("tel"));
+            	user.setHouseId(rs.getString("houseId"));
+
+            }
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        } finally {
+            // 执行完关闭数据库
+            dbmanage.closeDB(rs, sta, conn);
+        }
+        return user;
+
+    }
 
 	
 }
