@@ -7,8 +7,6 @@
 	<link rel="stylesheet" type="text/css" href="design/design.css"> 
 
 
-
-
 </head>
 <body>
 	<jsp:include page="design/header.jsp" />
