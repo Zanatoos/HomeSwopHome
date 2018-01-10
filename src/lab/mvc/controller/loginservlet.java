@@ -82,13 +82,6 @@ public class loginservlet extends HttpServlet {
 			request.getRequestDispatcher("Sucess.jsp").forward(request, response);
 
 		}
-		
-      
-		
-
-
-
-
 	}
 
 }

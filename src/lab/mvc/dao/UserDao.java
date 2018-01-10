@@ -47,7 +47,7 @@ public class UserDao {
             sta = conn.createStatement();
             System.out.println(email);
             System.out.println(password);
-            String sql = "SELECT * FROM UserInfo WHERE email = '"+ email + "' AND password= '" + password + "'";
+            String sql = "SELECT * FROM homeswophome_db.UserInfo WHERE email = '"+ email + "' AND password= '" + password + "'";
             rs = sta.executeQuery(sql);
             
             while (rs.next()) {

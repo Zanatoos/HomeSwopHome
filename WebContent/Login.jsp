@@ -12,14 +12,9 @@
 </head>
 <body>
 	<jsp:include page="design/header.jsp" />
-<<<<<<< HEAD
-	<form name="loginform" action="ControllerUser" method="get" >
-=======
-	
 	<% String message = (String)(request.getAttribute("message")); %>
 
 	<form name="loginform" action="loginservlet" method="post" >
->>>>>>> origin/master
 		<h1 id="h">Login Here</h1>
 		<label>Email:</label> <input  type="text" name="email" /> <br>
 		<br>
