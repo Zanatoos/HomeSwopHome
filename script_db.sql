@@ -22,7 +22,8 @@ CREATE TABLE homeswophome_db.HouseInfo (
   description VARCHAR(45) NOT NULL
   );
 
-	
+describe homeswophome_db.HouseInfo;
 	
   SELECT * FROM homeswophome_db.UserInfo;
+  SELECT * FROM homeswophome_db.HouseInfo;
   insert into homeswophome_db.USERINFO(email, password, firstName, lastName, tel) values('a@a.com','a','a','a','a');

@@ -39,22 +39,21 @@ public class ControllerHouse extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String houseId = request.getParameter("houseId");
 //		String title = request.getParameter("title");
-		String adrs_1 = request.getParameter("adrs_1");
-		String adrs_2 = request.getParameter("adrs_2");
+		String adrs_1 = request.getParameter("addr");
+		String adrs_2 = request.getParameter("comp_addr");
 		String city  = request.getParameter("city");
 		String code_postal = request.getParameter("code_postal");
 		String country = request.getParameter("country");
 		String date_start = request.getParameter("date_start");
 		String date_fin = request.getParameter("date_fin");
-		String num_people = request.getParameter("num_people");
+		int num_people = Integer.parseInt(request.getParameter("num_people"));
 		String house_type = request.getParameter("house_type");
-		String service = request.getParameter("service");
-		String constraints = request.getParameter("constraints");
+		//String service = request.getParameter("service");
+		//String constraints = request.getParameter("constraints");
 		String description = request.getParameter("description");
 		
-
 		
-		HouseInfo house = new HouseInfo(houseId, adrs_1,adrs_2,city, code_postal, country, date_start, date_fin, num_people, house_type, service, constraints, description);
+		HouseInfo house = new HouseInfo(houseId, adrs_1,adrs_2,city, code_postal, country, date_start, date_fin, num_people, house_type, description);
 
 		HouseDao houseDao = new HouseDao();//实例化数据库操作对象
 		houseDao.insertHouse(house);//调用方法

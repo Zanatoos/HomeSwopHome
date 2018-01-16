@@ -10,15 +10,14 @@ public class HouseInfo {
  private String country;
  private String date_start;
  private String date_fin;
- private String num_people;
+ private int num_people;
  private String house_type;
- private String service;
- private String constraints;
+ //private String service;
+ //private String constraints;
  private String description;
  
 public HouseInfo(String houseId, String adrs_1, String adrs_2, String city, String code_postal, String country,
-		String date_start, String date_fin, String num_people, String house_type, String service, String constraints,
-		String description) {
+		String date_start, String date_fin, int num_people, String house_type, String description) {
 	super();
 	this.houseId = houseId;
 	this.adrs_1 = adrs_1;
@@ -30,8 +29,8 @@ public HouseInfo(String houseId, String adrs_1, String adrs_2, String city, Stri
 	this.date_fin = date_fin;
 	this.num_people = num_people;
 	this.house_type = house_type;
-	this.service = service;
-	this.constraints = constraints;
+	//this.service = service;
+	//this.constraints = constraints;
 	this.description = description;
 }
 public String getHouseId() {
@@ -82,10 +81,10 @@ public String getDate_fin() {
 public void setDate_fin(String date_fin) {
 	this.date_fin = date_fin;
 }
-public String getNum_people() {
+public int getNum_people() {
 	return num_people;
 }
-public void setNum_people(String num_people) {
+public void setNum_people(int num_people) {
 	this.num_people = num_people;
 }
 public String getHouse_type() {
@@ -94,7 +93,7 @@ public String getHouse_type() {
 public void setHouse_type(String house_type) {
 	this.house_type = house_type;
 }
-public String getService() {
+/*public String getService() {
 	return service;
 }
 public void setService(String service) {
@@ -105,7 +104,7 @@ public String getConstraints() {
 }
 public void setConstraints(String constraints) {
 	this.constraints = constraints;
-}
+}*/
 public String getDescription() {
 	return description;
 }

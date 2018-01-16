@@ -18,7 +18,7 @@ public class HouseDao {
 		try {
 			conn = dbmanage.initDB();
 			sta = conn.createStatement();
-			String sql = ("insert into HouseInfo(houseId, adrs_1, adrs_2, city, code_postal, country, date_start, date_fin, num_people, house_type, service, constraints, description)value('"+house.getHouseId()+"','"+house.getAdrs_1()+"','"+house.getAdrs_2()+"','"+house.getCity()+"','"+house.getCode_postal()+"','"+house.getCountry()+"','"+house.getDate_start()+"','"+house.getDate_fin()+"','"+house.getNum_people()+"','"+house.getHouse_type()+"','"+house.getService()+"','"+house.getConstraints()+"','"+house.getDescription()+"')");
+			String sql = ("insert into homeswophome_db.HouseInfo(addr, comp_addr, city, code_postal, country, date_start, date_fin, num_people, house_type, description) values('"+house.getAdrs_1()+"','"+house.getAdrs_2()+"','"+house.getCity()+"','"+house.getCode_postal()+"','"+house.getCountry()+"','"+house.getDate_start()+"','"+house.getDate_fin()+"',"+house.getNum_people()+",'"+house.getHouse_type()+"','"+house.getDescription()+"')");
     		System.out.println("data inserted");
 			
 			sta.executeUpdate(sql);
