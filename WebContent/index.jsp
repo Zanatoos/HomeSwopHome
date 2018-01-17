@@ -12,8 +12,6 @@
 	
 <img src="images/stockholm-snow.jpg" style="width: 100%; height: auto;" />
 	
-
-	
 	<jsp:include page="design/footer.jsp" />
 </body>
 </html>
